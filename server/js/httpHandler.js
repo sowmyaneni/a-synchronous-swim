@@ -28,8 +28,10 @@ module.exports.router = (req, res, next = ()=>{}) => {
   //     res.end(body);
   //   });
   if (req.method === "GET" && req.url === "/background.jpg"){
-    var img = fs.readFileSync(module.exports.backgroundImageFile);
-    res.end(img);
+    // var img = fs.readFileSync(module.exports.backgroundImageFile);
+    var readStream = fs.createReadStream(module.exports.backgroundImageFile);
+    readStream.pipe(res);
+    // res.end(img);
   } else if (req.method === "GET") {
     res.end(messageQueue.dequeue());
   }
