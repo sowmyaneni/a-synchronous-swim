@@ -28,6 +28,7 @@ const SwimTeam = {
     }
 
     SwimTeam.direction = direction;
+    
   },
 
   valid: (direction) => {
