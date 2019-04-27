@@ -25,21 +25,20 @@
   setInterval(swimCommandFetcher,500);
 
 
-  const getBackgroundImage = () => {
+  // const getBackgroundImage = () => {
 
-    $.ajax({
-      type: 'GET',
-      data: 'backgroundImage',
-      url: serverUrl,
-      // contentType: 'application/json',
-      // data: dir,
-      success: (background) => {
-        console.log(background);
-      }
-    });
-  };
+  //   $.ajax({
+  //     type: 'GET',
+  //     url: serverUrl,
+  //     // contentType: 'application/json',
+  //     // data: dir,
+  //     success: (background) => {
+  //       console.log(background)
+  //     }
+  //   });
+  // };
 
-  getBackgroundImage();
+  // getBackgroundImage();
 
   /////////////////////////////////////////////////////////////////////
   // The ajax file uplaoder is provided for your convenience!

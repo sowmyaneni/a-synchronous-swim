@@ -27,9 +27,9 @@ module.exports.router = (req, res, next = ()=>{}) => {
   //     console.log(body);
   //     res.end(body);
   //   });
-  if (req.method === "GET" && req.url === "/?backgroundImage"){
+  if (req.method === "GET" && req.url === "/background.jpg"){
     var img = fs.readFileSync(module.exports.backgroundImageFile);
-    res.end(img, 'binary');
+    res.end(img);
   } else if (req.method === "GET") {
     res.end(messageQueue.dequeue());
   }
