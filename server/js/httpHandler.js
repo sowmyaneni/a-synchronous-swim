@@ -5,7 +5,7 @@ const multipart = require('./multipartUtils');
 const messageQueue = require('./messageQueue.js');
 
 // Path for the background image ///////////////////////
-module.exports.backgroundImageFile = path.join('.', 'background.jpg');
+module.exports.backgroundImageFile = path.join(__dirname, '/background.jpg');
 ////////////////////////////////////////////////////////
 
 module.exports.router = (req, res, next = ()=>{}) => {
@@ -27,7 +27,10 @@ module.exports.router = (req, res, next = ()=>{}) => {
   //     console.log(body);
   //     res.end(body);
   //   });
-  if (req.method === "GET") {
+  if (req.method === "GET" && req.url === "/?backgroundImage"){
+    var img = fs.readFileSync(module.exports.backgroundImageFile);
+    res.end(img, 'binary');
+  } else if (req.method === "GET") {
     res.end(messageQueue.dequeue());
   }
   // var dir = ['up', 'down', 'left', 'right'];
