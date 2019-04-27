@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const headers = require('./cors');
 const multipart = require('./multipartUtils');
+const messageQueue = require('./messageQueue.js');
 
 // Path for the background image ///////////////////////
 module.exports.backgroundImageFile = path.join('.', 'background.jpg');
@@ -27,7 +28,7 @@ module.exports.router = (req, res, next = ()=>{}) => {
   //     res.end(body);
   //   });
   if (req.method === "GET") {
-    res.end();
+    res.end(messageQueue.dequeue());
   }
   // var dir = ['up', 'down', 'left', 'right'];
   // var randDir = dir[Math.round(Math.random()*dir.length)];

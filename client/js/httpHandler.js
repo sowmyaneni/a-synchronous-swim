@@ -17,12 +17,12 @@
       // data: dir,
       success: (data) => {
         console.log(data);
-        // SwimTeam.move(data);
+        SwimTeam.move(data);
       }
     });
   };
 
-  setInterval(swimCommandFetcher,5000);
+  setInterval(swimCommandFetcher,500);
 
   /////////////////////////////////////////////////////////////////////
   // The ajax file uplaoder is provided for your convenience!
